@@ -11,6 +11,7 @@ const Container = styled.div`
   align-items: center;
 `
 const CentsShow = styled.div`
+display: flex;
   font-size: 200px;
   color: #298eb0;
 `

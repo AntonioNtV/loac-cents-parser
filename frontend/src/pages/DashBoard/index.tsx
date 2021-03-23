@@ -12,7 +12,7 @@ interface Student {
 
 const Dashboard: React.FC = () => {
   const [code, setCode] = useState('');
-  const [cents, setCents] = useState(0);
+  const [cents, setCents] = useState<number | null>(null);
   const [inputError, setInputError] = useState('');
 
   async function handleGetCents(event: FormEvent<HTMLFormElement>) {
@@ -27,12 +27,14 @@ const Dashboard: React.FC = () => {
 
       if (!student) {
         setInputError("Código não existe, sua mula! Digite novamente")
+        setCents(null)
         return;
       }
       setCents(student.cents);
+      setInputError('')
 
     } catch (error) {
-      setInputError('Deu erro! SUA MULA')
+      setInputError('Código não existe, sua mula! Digite novamente')
     }
 
   }
@@ -57,7 +59,7 @@ const Dashboard: React.FC = () => {
 
         { inputError && <Error>{inputError}</Error>}
       <CentsShow>{cents}</CentsShow>
-      <Title>Centavos</Title>
+      { cents ? <Title>Centavos</Title> : null }
       </Container>
     </>
   );

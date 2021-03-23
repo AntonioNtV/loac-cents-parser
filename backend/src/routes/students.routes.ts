@@ -13,6 +13,8 @@ studentsRouter.get('/', async (request, response) => {
 studentsRouter.get('/:code', async (request, response) => {
     const { code } = request.params;
 
+    console.log("RECEBI REQUEST");
+
     const studentsRepository = await StudentsRepository.build()
     const student = studentsRepository.getStudentByCode(code);
 

@@ -1,7 +1,13 @@
 import React from 'react';
+import Dashboard from './pages/DashBoard';
+import GlobalSytle from './styles/global';
 
-function App() {
-  return <h1>Hello World</h1>;
-}
+const App: React.FC = () => (
+  <>
+    <GlobalSytle />
+    <Dashboard/>
+
+  </>
+);
 
 export default App;

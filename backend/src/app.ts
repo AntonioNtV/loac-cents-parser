@@ -5,8 +5,7 @@ import 'reflect-metadata';
 
 import routes from './routes/index';
 import errorHandlerMiddleware from './middlewares/errorHandlerMiddleware';
-import { StudentInfo } from './database/index';
-import getStudentsInfo from './database/';
+
 
 class App {
   public express: express.Application;
@@ -17,9 +16,9 @@ class App {
   }
 
   private async initialization(): Promise<void> {
-    this.routes();
     this.express.use(cors());
     this.express.use(errorHandlerMiddleware);
+    this.routes();
   }
 
   private routes(): void {
